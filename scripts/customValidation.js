@@ -8,10 +8,10 @@ var validate =
                 getId(id).setCustomValidity("*Please Enter Name");
             }
             else {
-                if (value.length >= 20) {
+                if (value.length >= 20 || value.length < 2) {
                     getId(id).style.borderColor = "red";
-                    getId(errorId).innerHTML = "*Length Should be less than 20";
-                    getId(id).setCustomValidity("*Length Should be less than 20");
+                    getId(errorId).innerHTML = "*Length Should be between 2 and 20";
+                    getId(id).setCustomValidity("*Length Should be between 2 and 20");
                 }
                 else {
                     if (!(/^[A-Za-z\s]+$/.test(value))) {
@@ -125,7 +125,7 @@ var validate =
                 if(!(/^[0-9]{5,12}$/.test(value)))
                 {
                     getId(id).style.borderColor = "red";
-                    getId(errorId).innerHTML = "*Enter proper Number";
+                    getId(errorId).innerHTML = "*Contact Number length should be between 5 and 12";
                     getId(id).setCustomValidity("*Enter proper Number");
                 }
                 else
@@ -152,7 +152,7 @@ var validate =
                 {
                     if (!(/^[0-9]{5,12}$/.test(contact))) {
                         getId('ContactNumber' + i).style.borderColor = "red";
-                        getId('errorContactInfo' + i).innerHTML = "*Enter proper Number";
+                        getId('errorContactInfo' + i).innerHTML = "*Contact Number length should be between 5 and 12";
                         getId('ContactNumber' + i).setCustomValidity("*Enter proper Number");
                     }
                     else {
