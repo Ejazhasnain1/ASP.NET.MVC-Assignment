@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="~/Style/LoginStyle.css" />
+    <link rel="stylesheet" href="~/Style/Style.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.0/dist/jquery.validate.js"></script>
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <header>
+         @ViewBag.Header
+    </header>
+    <nav>
+        <ul>
+            <li>Home</li>
+            <li>Services</li>
+            <li>About</li>
+            <li>Contacts</li>'
+            <li>FAQ</li>
+        </ul>
+        <div class="search">
+            <input id="searchText" type="number" placeholder="Search" name="searchText">
+            <button id="searchButton" type="button" name="searchButton">Go</button>
+        </div>
+    </nav>
+  
+    
+    @RenderBody()
+
+    <script src="~/scripts/Script.js"></script>
+    <script src="~/scripts/customElement.js"></script>
+    <script src="~/scripts/customValidation.js"></script>    
+    
+</body>
+</html>

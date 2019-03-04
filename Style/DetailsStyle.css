@@ -1,0 +1,66 @@
+h2{
+    color:#fff;
+    margin-left:3%;
+    margin-top:2%;
+}
+
+.user-content{
+  
+   height:auto;
+   width:auto;
+   border-radius: 15px;
+   margin-left: 37%;
+   padding: 20px;
+   width: 24%;
+   background-color:white;
+}
+
+
+.userContent-value{     
+     width: 100%;
+     font-weight: bold;
+     color: #495092;
+     margin-bottom:20px;
+     margin-top:5px;
+     overflow-wrap: break-word;
+}
+.userContent-fields{
+    width: 100%;
+    font-weight: bold;
+    display:inline;    
+}
+button{
+    width: 40%;
+    background-color: #e50914;
+    color: white;
+    padding: 10px 20px;
+    margin: 6px 0 0 7px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    text-align:center;
+    font-weight:bold;
+}
+
+.image-view{
+    margin-bottom:5%;
+    border-radius:50%;
+    margin-left:33%;
+    height:90px;
+    width:90px;
+}
+
+
+#logoutUser{
+    margin-top:10%;
+    margin-left:28%;
+}
+#logoutUser:hover{
+     background-color: #a04545;
+}
+
+.registration-form:after {
+  content: "";
+  display: table;
+  clear: both;
+}

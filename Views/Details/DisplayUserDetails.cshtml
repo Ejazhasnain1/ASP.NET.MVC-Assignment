@@ -1,0 +1,80 @@
+﻿@model MindfireSolutions.ViewModel.MindfireEmployeeDetails
+@using MindfireSolutions.CustomHelper
+
+
+@{
+    ViewBag.Title = "DisplayUserDetails";
+    Layout = "~/Views/Shared/_SharedView.cshtml";
+    ViewBag.Header = "Mindfire Solutions";
+}
+
+<link href="~/Style/detailsStyle.css" rel="stylesheet" />
+<link href="~/Style/MediaQueryStyle/MediaQueryDetails.css" rel="stylesheet" />
+
+<h2>Welcome @Html.DisplayFor(model => model.Firstname) @Html.DisplayFor(model => model.Lastname)</h2>
+
+<div class="user-content">
+
+    <div class="registration-form">
+        @Html.Image(@Model.EmployeeImage, "Employee Image")
+        </div>
+
+        <div class="registration-form">
+            <div class="userContent-fields">
+                @Html.DisplayNameFor(model => model.EmployeeId)
+            </div>
+
+            <div class="userContent-value">
+                @Html.DisplayFor(model => model.EmployeeId)
+            </div>
+        </div>
+
+      
+
+
+        <div class="registration-form">
+            <div class="userContent-fields">
+                @Html.DisplayNameFor(model => model.Email)
+            </div>
+
+            <div class="userContent-value">
+                @Html.DisplayFor(model => model.Email)
+            </div>
+        </div>
+
+
+
+        <div class="registration-form">
+            <div class="userContent-fields">
+                @Html.DisplayNameFor(model => model.Address)
+            </div>
+            <div class="userContent-value">
+                @Html.DisplayFor(model => model.Address)
+            </div>
+        </div>
+
+
+
+        @foreach (var values in Model.GetEmployeeContactList)
+        {
+            <div class="registration-form">
+                <div class="userContent-fields">
+                    @Html.DisplayFor(model => values.ContactTypeDetails.ContactTypeValue)
+                </div>
+                <div class="userContent-value">
+                    @Html.DisplayFor(model => values.ContactNumber)
+                </div>
+            </div>
+        }
+
+
+
+        <div class="registration-form">
+            <div class="display-value">
+                <button id="logoutUser" name="logoutUser" value="Logout">@Html.ActionLink("Logout", "Logout","Details")</button>
+            </div>
+        </div>
+
+
+    </div>
+
