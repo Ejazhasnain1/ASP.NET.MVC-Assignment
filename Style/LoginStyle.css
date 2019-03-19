@@ -1,28 +1,28 @@
-﻿
-.container { 
-    margin-top:40px;
+﻿.container {
+    margin-top: 40px;
     height: auto;
-    margin-left:33%;
+    margin-left: 33%;
     border-radius: 5px;
-    padding: 20px;    
-    background-color:rgba(0,0,0,.55);
+    padding: 20px;
+    background-color: rgba(0,0,0,.55);
     width: 30%;
 }
-span{
-    color:#e87e03;
-    font-size:17px;
+
+span {
+    color: #e87e03;
+    font-size: 17px;
 }
 
-h1{
-    color:#fff;
-    margin-left:33%;
-    margin-bottom:15px;
+h1 {
+    color: #fff;
+    margin-left: 33%;
+    margin-bottom: 15px;
 }
 
-h3{
-    color:#fff;
-    font-size:31px;
-    margin-left:0;
+h3 {
+    color: #fff;
+    font-size: 31px;
+    margin-left: 0;
 }
 
 .fields {
@@ -37,74 +37,74 @@ h3{
     float: left;
     width: 100%;
     margin-top: 15px;
-   
 }
 
-input[type=text],select{
-  width: 100%;
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  background-color:#333;
-  outline: none;
-  color:#fff;
- 
+input[type=text], select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #333;
+    outline: none;
+    color: #fff;
 }
-textarea{
-  width: 77%;
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  outline: none;
-  background-color:#333;
-  color:#fff;
-  
+
+textarea {
+    width: 77%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+    background-color: #333;
+    color: #fff;
 }
-select{
-  width: 50%;
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  outline: none;
-  background-color:#333;
+
+select {
+    width: 50%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    outline: none;
+    background-color: #333;
 }
 
 
 
-input[type=password]{
-  width: 100%;
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  outline: none;
-  background-color:#333;
-}
-input[type=email]{
-  width: 70%;
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  outline: none;
-  background-color:#333;
+input[type=password] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+    background-color: #333;
 }
 
- textarea:focus {
-      background-color: #1AF1F7;
+input[type=email] {
+    width: 70%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+    background-color: #333;
 }
 
- .save-button{
-     margin-left: 31%;      
-     margin-top:7%;
-     padding: 7px;    
+textarea:focus {
+    background-color: #1AF1F7;
 }
 
- .register-button{
-     margin-left: 31%;      
-     margin-top:7%;
-     padding: 7px;  
+.save-button {
+    margin-left: 31%;
+    margin-top: 7%;
+    padding: 7px;
 }
- 
- #addContactField{
+
+.register-button {
+    margin-left: 31%;
+    margin-top: 7%;
+    padding: 7px;
+}
+
+#addContactField {
     width: 45%;
     background-color: #4CAF50;
     color: white;
@@ -112,8 +112,9 @@ input[type=email]{
     border: none;
     border-radius: 8px;
     cursor: pointer;
-    outline:none;
- }
+    outline: none;
+}
+
 input[type=submit] {
     width: 35%;
     background-color: #e50914;
@@ -122,8 +123,9 @@ input[type=submit] {
     border: none;
     border-radius: 8px;
     cursor: pointer;
-    outline:none;
+    outline: none;
 }
+
 input[type=file] {
     width: 60%;
     background-color: lightcoral;
@@ -136,26 +138,26 @@ input[type=file] {
 
 
 
-.custom{
-    margin-left:1%;
-    margin-top:23px;
-    font-weight:bold;
-    color:blue;
+.custom {
+    margin-left: 1%;
+    margin-top: 23px;
+    font-weight: bold;
+    color: blue;
 }
 
 input[type=submit]:hover {
     background-color: #a04545;
 }
 
-a{
-    text-decoration:none;
-    color:white;
-    font-weight:bold;
+a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
 }
 
 
 .registration-form:after {
-  content: "";
-  display: table;
-  clear: both;
+    content: "";
+    display: table;
+    clear: both;
 }

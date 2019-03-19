@@ -10,17 +10,14 @@ namespace MindfireSolutions.CustomHelper
     public class ContactValidate
     {
         public static bool IsContactValid(MindfireEmployeeRegister employeeRegister)
-        {
-            
+        {            
             Regex regex = new Regex(@"^[0-9]{5,10}$");
             for(int i = 0; i < employeeRegister.UserContactList.Length;i++)
-            {               
-                    //if(!(Regex.IsMatch(employeeRegister.ContactNumber[i], regex)))
+            { 
                     if (!regex.IsMatch(employeeRegister.ContactNumber[i]))
                     {
                         return false;
-                    }
-                
+                    }                
             }
             return true;
         }

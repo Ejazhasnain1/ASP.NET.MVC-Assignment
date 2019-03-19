@@ -13,7 +13,6 @@ namespace MindfireSolutions.Controllers
 {
     public class DetailsController : Controller
     {
-       
         // GET: Details
         public ActionResult DisplayUserDetails()
         {
@@ -31,8 +30,38 @@ namespace MindfireSolutions.Controllers
             {
                 return RedirectToAction("LoginUser", "Login");
             }
-            
+
         }
+
+
+        [HttpPost]
+        public ActionResult EditUserDetails(EditEmployeeDetails emp)
+        {
+            try
+            {
+                if (Convert.ToString(Session["user"]) != null)
+                {
+                    if (!ModelState.IsValid)
+                    {
+                        return Json(new { success = false, }, JsonRequestBehavior.AllowGet);
+                    }
+                    else
+                    {
+                        new Edit().EditDetails(Convert.ToString(Session["user"]), emp);
+                        return Json(new { success = true, }, JsonRequestBehavior.AllowGet);
+                    }
+                }
+                else
+                    return RedirectToAction("LoginUser", "Login");
+            }
+            catch (Exception)
+            {
+                return RedirectToAction("LoginUser", "Login");
+            }
+        }
+
+
+
 
         public ActionResult Logout()
         {

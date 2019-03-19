@@ -13,7 +13,7 @@ namespace MindfireSolutions.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201903041018261_FirstMigration"; }
+            get { return "201903141332367_FirstMigration"; }
         }
         
         string IMigrationMetadata.Source

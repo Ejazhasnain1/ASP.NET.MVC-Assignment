@@ -1,5 +1,5 @@
 var validate =
-    {        
+    {
         isNameValid: function (id, errorId) {
             var value = getId(id).value.trim();
             if (value === "") {
@@ -29,8 +29,7 @@ var validate =
             }
         },
 
-        isUsernameValid:function(id, errorId)
-        {
+        isUsernameValid: function (id, errorId) {
             var emailId = getId(id).value.trim();
             if (emailId === "") {
                 getId(id).style.borderColor = "red";
@@ -51,8 +50,7 @@ var validate =
             }
         },
 
-        isAddressValid:function(id,errorId)
-        {
+        isAddressValid: function (id, errorId) {
             var value = getId(id).value.trim();
             if (value === "") {
                 getId(id).style.borderColor = "red";
@@ -73,32 +71,31 @@ var validate =
             }
         },
 
-        isPasswordValid:function(id,errorId)
-        {
+        isPasswordValid: function (id, errorId) {
             var password = getId(id).value.trim();
             if (password === "") {
                 getId(id).style.borderColor = "red";
                 getId(errorId).innerHTML = "*Please Enter Password";
                 getId(id).setCustomValidity("*Please Enter Password");
             }
-            else {                
-                    if (!(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#])[A-Za-z\d@$#!%*?&]{8,}$/).test(password)) {
-                        getId(id).style.borderColor = "red";
-                        getId(errorId).innerHTML = "Password must be 8 characters and should contain atleast one uppercase+lowercase+digit+special character respectively";
-                        getId(id).setCustomValidity("*Please Enter valid Password");
-                    }
-                    else {
-                        getId(errorId).innerHTML = "";
-                        getId(id).style.borderColor = "lightgrey";
-                        getId(id).setCustomValidity("");
-                    }
+            else {
+                if (!(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#])[A-Za-z\d@$#!%*?&]{8,}$/).test(password)) {
+                    getId(id).style.borderColor = "red";
+                    getId(errorId).innerHTML = "Password must be 8 characters and should contain atleast one uppercase+lowercase+digit+special character respectively";
+                    getId(id).setCustomValidity("*Please Enter valid Password");
+                }
+                else {
+                    getId(errorId).innerHTML = "";
+                    getId(id).style.borderColor = "lightgrey";
+                    getId(id).setCustomValidity("");
+                }
             }
         },
 
-        isEqual: function(id, errorId, id1) {
+        isEqual: function (id, errorId, id1) {
             var password = getId(id).value.trim();
             {
-                if (password!==getId(id1).value){
+                if (password !== getId(id1).value) {
                     getId(id).style.borderColor = "red";
                     getId(errorId).innerHTML = "*Entered Password does not match";
                     getId(id).setCustomValidity("*Entered Password does not match");
@@ -111,45 +108,38 @@ var validate =
             }
         },
 
-        validContact:function(id,errorId)
-        {
+        validContact: function (id, errorId) {
             var value = getId(id).value.trim();
-            if(value==="")
-            {
+            if (value === "") {
                 getId(id).style.borderColor = "red";
                 getId(errorId).innerHTML = "*Please Enter Mobile Number";
                 getId(id).setCustomValidity("*Please Enter Mobile Number");
             }
-            else
-            {
-                if(!(/^[0-9]{5,12}$/.test(value)))
-                {
+            else {
+                if (!(/^[0-9]{5,12}$/.test(value))) {
                     getId(id).style.borderColor = "red";
                     getId(errorId).innerHTML = "*Contact Number length should be between 5 and 12";
                     getId(id).setCustomValidity("*Enter proper Number");
                 }
-                else
-                {                    
-                        getId(errorId).innerHTML = "";
-                        getId(id).style.borderColor = "lightgrey";
-                        getId(id).setCustomValidity("");
-                    
+                else {
+                    getId(errorId).innerHTML = "";
+                    getId(id).style.borderColor = "lightgrey";
+                    getId(id).setCustomValidity("");
+
                 }
             }
         },
         isContactValid: function (cloneCount) {
-            
-            for(var i=1;i<Number(cloneCount);i++)
-            {
-                var contact = getId('ContactNumber'+ i).value;
-               
+
+            for (var i = 1; i < Number(cloneCount) ; i++) {
+                var contact = getId('ContactNumber' + i).value;
+
                 if (contact === "") {
                     getId('ContactNumber' + i).style.borderColor = "red";
                     getId('errorContactInfo' + i).innerHTML = "*Please Enter Mobile Number";
                     getId('ContactNumber' + i).setCustomValidity("*Please Enter Mobile Number");
                 }
-                else
-                {
+                else {
                     if (!(/^[0-9]{5,12}$/.test(contact))) {
                         getId('ContactNumber' + i).style.borderColor = "red";
                         getId('errorContactInfo' + i).innerHTML = "*Contact Number length should be between 5 and 12";
@@ -166,8 +156,7 @@ var validate =
 
         },
 
-        userCredentials:function()
-        {
+        userCredentials: function () {
             validate.isNameValid('Firstname', 'errorFirstname');
             validate.isNameValid('Lastname', 'errorLastname');
             validate.isUsernameValid('Email', 'errorEmailId');
@@ -175,11 +164,14 @@ var validate =
             validate.isPasswordValid('Password', 'errorPassword');
             validate.isEqual('ConfirmPassword', 'errorConfirmPassword', 'Password');
         },
+
     };
 
         getId("register").addEventListener("click", function () {
             validate.userCredentials();
         });
+
+      
 
        
 

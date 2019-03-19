@@ -14,6 +14,8 @@ namespace MindfireSolutions.Models
         public DbSet<Employee> GetEmployeeDetails { get; set; }
         public DbSet<EmployeeContact> GetContactDetails { get; set; }
         public DbSet<ContactType> GetContactType { get; set; }
+        public DbSet<Role> GetRoleType { get; set; }
+        public DbSet<Access> GetAccessType { get; set; }
     }
 }
 

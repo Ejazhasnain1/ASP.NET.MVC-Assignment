@@ -53,9 +53,8 @@ namespace MindfireSolutions.Controllers
                     return View();
                 }
             }
-            
+
             return View();
-                
         }
 
         public JsonResult UsernameAvailablity(string userEmail)

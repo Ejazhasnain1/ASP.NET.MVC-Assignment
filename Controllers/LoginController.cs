@@ -25,11 +25,20 @@ namespace MindfireSolutions.Controllers
                 {
                     string localPassword = Hash.GetHash(emp.Password);
                     var value = reference.GetEmployeeDetails.Where(m => m.Email.Equals(emp.Email) && m.Password.Equals(localPassword)).SingleOrDefault();
+                    var accessRole = reference.GetAccessType.Where(m => m.EmployeeId == value.EmployeeId).SingleOrDefault();
 
                     if (value != null)
                     {
-                        Session["user"] = emp.Email;
-                        return RedirectToAction("DisplayUserDetails", "Details");
+                        if (accessRole.RoleId == 2)
+                        {
+                            Session["user"] = emp.Email;
+                            return RedirectToAction("DisplayUserDetails", "Details");
+                        }
+                        else
+                        {
+                            Session["user"] = emp.Email;
+                            return RedirectToAction("AdminDetails", "Admin");
+                        }
                     }
                     else
                     {

@@ -1,0 +1,42 @@
+@media screen and (max-width: 1024px) {
+    button{
+        width: 10%;
+        background-color: #5bc0de;
+        border-radius:2px;
+        color: white;
+        margin-left:1%;
+        padding: 10px 20px;
+        border: none;    
+        cursor: pointer;
+        outline: none;
+        text-align: center;
+        font-weight: bold;
+    }
+
+    table {
+        width: 100%;
+        margin-left:0px;
+        border-radius:4px;
+    }
+
+    h2{
+        margin-left:39%;
+    }
+    
+}
+
+@media screen and (max-width: 414px) {
+    button{
+        width: 20%;
+    }
+    nav{display:none;}
+
+    h2{
+        margin-left:35%;
+        font-size:21px;
+        margin-top: 12%;
+    }
+
+
+   
+}

@@ -1,12 +1,10 @@
-﻿var cloneCount = 1;
+var cloneCount = 1;
 $(document).ready(function () {
 
-    
     $("#addContactField").click(function () {
-        $("#cloneItem").clone().append('<div><input type="text" class="fields-value" id="ContactNumber' + cloneCount + '" placeholder="Enter your Number" required="true" name="ContactNumber" oninput="validate.isContactValid(cloneCount)"</input><div class="error" id="errorContactInfo'+ cloneCount + '"></div></div>').insertBefore("#addItem");
+        $("#cloneItem").clone().append('<div><input type="text" class="fields-value" id="ContactNumber' + cloneCount + '" placeholder="Enter your Number" required="true" name="ContactNumber" oninput="validate.isContactValid(cloneCount)"</input><div class="error" id="errorContactInfo' + cloneCount + '"></div></div>').insertBefore("#addItem");
         cloneCount++;
     });
-
 
     $(".email-check").keyup(function () {
         var email = $(".email-check").val();
@@ -35,22 +33,72 @@ $(document).ready(function () {
 
         });
     });
- 
 
 
     $('input[type=file]').change(function () {
         var val = $(this).val().toLowerCase(), regex = new RegExp("(.*?)\.(jpg|jpeg|png)$");
         if (!(regex.test(val)) || this.files[0].size >= 512000) {
             $(this).val('');
-           $("#errorFile").html("*Uploaded file should be of Image type and size should be below 500kb");
+            $("#errorFile").html("*Uploaded file should be of Image type and size should be below 500kb");
         }
     });
 
-   /* $('[id^=ContactNumber]').each(function (e) {
-        $(this).rules('add', {
-            maxlength: 12,
-            number: true,
-        });
-    });*/
 
+    $("#saveDetails").click(function () {
+        var myFormData = $("#editForm").serialize();
+        $.ajax({
+            type: "POST",
+            url: "/Details/EditUserDetails",
+            data: myFormData,
+            success: function (value) {
+                if (value["success"] == true) {
+                    $("#myModal").hide();
+                    alert("Changes Saved Successfully");
+                    location.reload();
+                } else {
+                    alert("Fill the form correctly");
+                }
+            },
+            error: function (value) {
+                alert("Error in Updation");
+            }
+        })
+    });
 });
+
+
+function editUsersDetails(idValue) {
+    $.ajax({
+        type: "GET",
+        url: "/Admin/EditUsersDetails/" + idValue,
+        success: function (result) {
+            console.log(result);
+            $("#fname").val(result["Firstname"]);
+            $("#lname").val(result["Lastname"]);
+            $("#permanentAddress").val(result["Address"]);
+            $("#hiddenId").val(result["EmployeeId"]);
+            $("#myUsersModal").show();
+        }
+    });
+
+    $("#saveUsersDetails").click(function () {
+        var myData = $("#editUsersForm").serialize();
+        $.ajax({
+            type: "POST",
+            url: "/Admin/EditDetails",
+            data: myData,
+            success: function (value) {
+                if (value["success"] == true) {
+                    $("#myUsersModal").hide();
+                    alert("Changes Saved Successfully");
+                    location.reload();
+                } else {
+                    alert("Fill the form correctly");
+                }
+            },
+            error: function (value) {
+                alert("Error in Updation");
+            }
+        })
+    });
+};
