@@ -50,3 +50,5 @@ D:\New folder\MindfireSolutions\MindfireSolutions\obj\Debug\MindfireSolutions.pd
 D:\New folder\MindfireSolutions\MindfireSolutions\obj\Debug\MindfireSolutions.csprojResolveAssemblyReference.cache
 D:\New folder\MindfireSolutions\MindfireSolutions\obj\Debug\MindfireSolutions.Migrations.FirstMigration.resources
 D:\New folder\MindfireSolutions\MindfireSolutions\obj\Debug\MindfireSolutions.csproj.GenerateResource.Cache
+D:\New folder\MindfireSolutions\MindfireSolutions\bin\Elmah.dll
+D:\New folder\MindfireSolutions\MindfireSolutions\obj\Debug\MindfireSolutions.Migrations.AddElmah.resources
