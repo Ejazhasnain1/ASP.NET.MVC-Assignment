@@ -23,6 +23,7 @@
 
     @using (Html.BeginForm("RegisterUser", "Register", FormMethod.Post, new { @id = "registrationForm", @enctype = "multipart/form-data" }))
     {
+       @Html.AntiForgeryToken();
         @Html.ValidationSummary(true, "")
 
                     <div class="registration-form">
@@ -30,7 +31,7 @@
                             @Html.LabelFor(m => m.Firstname, "Firstname")<span>*</span>
                         </div>
                         <div class="fields-value">
-                            @Html.TextBoxFor(m => m.Firstname, "", new { placeholder = "Enter Firstname", required = "true", autocomplete = "off", oninput = "validate.isNameValid('Firstname','errorFirstname')" })
+                            @Html.TextBoxFor(m => m.Firstname, "", new { placeholder = "Enter Firstname", autocomplete = "off" })
                         </div>
                     </div>
                     <div class="error" id="errorFirstname">@Html.ValidationMessage("Firstname", "")</div>
@@ -42,7 +43,7 @@
                             @Html.LabelFor(m => m.Lastname, "Lastname")<span>*</span>
                         </div>
                         <div class="fields-value">
-                            @Html.TextBoxFor(m => m.Lastname, "", new { placeholder = "Enter Lastname", autocomplete = "off", required = "true", oninput = "validate.isNameValid('Lastname','errorLastname')" })
+                            @Html.TextBoxFor(m => m.Lastname, "", new { placeholder = "Enter Lastname", autocomplete = "off" })
                         </div>
                     </div>
                     <div class="error" id="errorLastname">@Html.ValidationMessage("Lastname", "")</div>
@@ -54,7 +55,7 @@
                             @Html.LabelFor(m => m.Email, "Username")<span>*</span>
                         </div>
                         <div class="fields-value">
-                            @Html.TextBoxFor(m => m.Email, "", new { placeholder = "Enter your Email-Id", required = "true", autocomplete = "off", @class = "email-check" })
+                            @Html.TextBoxFor(m => m.Email, "", new { placeholder = "Enter your Email-Id", autocomplete = "off", @class = "email-check" })
                         </div>
                     </div>
                     <div class="error" id="emailAvailabilty">@Html.ValidationMessage("Email", "")</div>
@@ -67,7 +68,7 @@
                             @Html.LabelFor(m => m.Address, "Address")<span>*</span>
                         </div>
                         <div class="fields-value">
-                            @Html.TextAreaFor(m => m.Address, 3, 40, new { placeholder = "Enter Your Address", required = "true", autocomplete = "off", oninput = "validate.isAddressValid('Address','errorAddress')" })
+                            @Html.TextAreaFor(m => m.Address, 3, 40, new { placeholder = "Enter Your Address", autocomplete = "off" })
                         </div>
                     </div>
                     <div class="error" id="errorAddress">@Html.ValidationMessage("Address", "")</div>
@@ -102,7 +103,7 @@
 
                     <div class="registration-form">
                         <div class="fields-value">
-                            @Html.TextBoxFor(m => m.ContactNumber, "", new { placeholder = "Enter your Number", required = "true", autocomplete = "off", oninput = "validate.validContact('ContactNumber','errorContactInfo')" })
+                            @Html.TextBoxFor(m => m.ContactNumber, "", new { placeholder = "Enter your Number", autocomplete = "off" })
                         </div>
                         <div class="error" id="errorContactInfo">@Html.ValidationMessage("ContactNumber", "")</div>
                         <div id="addItem" class="fields-value">
@@ -117,7 +118,7 @@
                             @Html.LabelFor(m => m.Password, "Password")<span>*</span>
                         </div>
                         <div class="fields-value">
-                            @Html.PasswordFor(m => m.Password, new { placeholder = "Enter Password", required = "true", oninput = "validate.isPasswordValid('Password','errorPassword')" })
+                            @Html.PasswordFor(m => m.Password, new { placeholder = "Enter Password" })
                         </div>
                     </div>
                     <div class="error" id="errorPassword">@Html.ValidationMessage("Password", "")</div>
@@ -128,7 +129,7 @@
                             @Html.LabelFor(m => m.ConfirmPassword, "Confirm Password")<span>*</span>
                         </div>
                         <div class="fields-value">
-                            @Html.PasswordFor(m => m.ConfirmPassword, new { placeholder = "Enter Password", required = "true", oninput = "validate.isEqual('ConfirmPassword','errorConfirmPassword','Password')" })
+                            @Html.PasswordFor(m => m.ConfirmPassword, new { placeholder = "Enter Password"})
                         </div>
                     </div>
                     <div class="error" id="errorConfirmPassword">@Html.ValidationMessage("ConfirmPassword", "")</div>
@@ -137,7 +138,7 @@
 
                     <div class="registration-form">
                         <div>
-                            <input type="submit" id="register" class="register-button" name="register" value="Register" onclick="return validate.userCredentials()">
+                            <input type="submit" id="register" class="register-button" name="register" value="Register">
                         </div>
                     </div>
          }

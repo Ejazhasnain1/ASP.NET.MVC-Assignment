@@ -1,6 +1,26 @@
 var cloneCount = 1;
 $(document).ready(function () {
 
+    $("#editDetails").click(function () {
+        $("#myModal").show();
+    });
+
+    $("#closeButton").click(function () {
+        $("#myModal").hide();
+    });
+
+    $("#editAdminDetails").click(function () {
+        $("#myAdminModal").show();
+    });
+
+    $("#closeAdminButton").click(function () {
+        $("#myAdminModal").hide();
+    });
+
+    $("#closeUserButton").click(function () {
+        $("#myUsersModal").hide();
+    });
+      
     $("#addContactField").click(function () {
         $("#cloneItem").clone().append('<div><input type="text" class="fields-value" id="ContactNumber' + cloneCount + '" placeholder="Enter your Number" required="true" name="ContactNumber" oninput="validate.isContactValid(cloneCount)"</input><div class="error" id="errorContactInfo' + cloneCount + '"></div></div>').insertBefore("#addItem");
         cloneCount++;
@@ -64,7 +84,11 @@ $(document).ready(function () {
             }
         })
     });
+
+   
 });
+
+
 
 
 function editUsersDetails(idValue) {
@@ -80,7 +104,6 @@ function editUsersDetails(idValue) {
             $("#myUsersModal").show();
         }
     });
-
     $("#saveUsersDetails").click(function () {
         var myData = $("#editUsersForm").serialize();
         $.ajax({

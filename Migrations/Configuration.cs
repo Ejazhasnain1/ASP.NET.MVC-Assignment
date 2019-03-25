@@ -48,12 +48,12 @@ namespace MindfireSolutions.Migrations
             context.GetRoleType.AddRange(addRole);
 
             Employee addEmployee = new Employee();
-            addEmployee.Firstname = "Naibedya";
-            addEmployee.Lastname = "Kar";
+            addEmployee.Firstname = "Admin";
+            addEmployee.Lastname = "Sir";
             addEmployee.Address = "Mindfire Solutions";
-            addEmployee.Email = "naibedyak@mindfiresolutions.com";
-            addEmployee.Password = Hash.GetHash("Ejaz@123");
-            addEmployee.EmployeeImage = @"\UploadImage\naibedyak@mindfiresolutions.com.jpg";
+            addEmployee.Email = "admin@gmail.com";
+            addEmployee.Password = Hash.GetHash("admin@123");
+            addEmployee.EmployeeImage = @"\UploadImage\admin@gmail.com.jpg";
 
             context.GetEmployeeDetails.Add(addEmployee);
 

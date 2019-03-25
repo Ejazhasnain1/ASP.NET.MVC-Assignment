@@ -8,7 +8,7 @@
     .search {
         display: none;
     }
-
+    
     li {
         font-size: 17px;
     }
@@ -61,8 +61,11 @@
 
 @media screen and (max-width: 419px) {
     li {
-        font-size: 12px;
-        padding: 22px 10px;
+        font-size: 11px;
+        padding: 22px 8px;
+    }
+    .shift-right li{
+        margin-top:2%;
     }
     header{display:none}
 
@@ -97,21 +100,26 @@
     }
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 360px) {
     .user-content {
         width: 90%;
         margin-left: 5%;
-        margin-top:19%;
+        margin-top:1%;
     }
 
     h2{
-        margin-top:3%;
+        margin-top:29%;
         font-size:14px;
+        margin-left:29%;
     }
 
     li {
-    display: inline-block;
-    text-align: center;    
-    font-size: 14px;
+     font-size: 10px;
+     padding: 22px 2px;
+    }
+   
+   .shift-right li{
+        margin-top:2%;
     }
 }
+

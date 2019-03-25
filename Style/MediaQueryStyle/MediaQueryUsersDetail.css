@@ -14,8 +14,8 @@
     }
 
     table {
-        width: 100%;
-        margin-left:0px;
+        width: 75%;
+        margin-left:12%;
         border-radius:4px;
     }
 
@@ -29,14 +29,46 @@
     button{
         width: 20%;
     }
-    nav{display:none;}
+
+     table {
+        width: 60%;
+        margin-left:6%;
+        border-radius:3px;
+    }
+
+    table th{
+        font-size:12px;
+    }
+
+    header{
+        display:none;        
+    }
+
+     li {
+     font-size: 12px;
+     padding: 22px 2px;
+    }
+   
+   .shift-right li{
+        margin-top:2%;
+    }
 
     h2{
         margin-left:35%;
         font-size:21px;
         margin-top: 12%;
+    }   
+  
+}
+
+@media screen and (max-width: 375px){
+     table {
+        width: 50%;
+        margin-left:2%;
+        border-radius:3px;
     }
 
-
-   
+    table th{
+        font-size:12px;
+    }
 }

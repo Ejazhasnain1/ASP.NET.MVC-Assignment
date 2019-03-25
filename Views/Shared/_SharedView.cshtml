@@ -1,13 +1,13 @@
-﻿<!DOCTYPE html>
+﻿@using System.Web.Optimization
+<!DOCTYPE html>
 
 <html>
 <head>
+    @Scripts.Render("~/Bundles/JS")
     <meta name="viewport" content="width=device-width" />
     <link rel="stylesheet" href="~/Style/LoginStyle.css" />
     <link rel="stylesheet" href="~/Style/Style.css">
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.0/dist/jquery.validate.js"></script>   
 
     <title>@ViewBag.Title</title>
 </head>
@@ -33,6 +33,7 @@
             <li><a href="#">@ViewBag.List4</a></li>
             <li><a href="#">@ViewBag.List5</a></li>           
         </ul>
+        @Html.Partial("_LoginPartial");
         <div class="search">
             <input id="searchText" type="number" placeholder="Search" name="searchText">
             <button id="searchButton" type="button" name="searchButton">Go</button>
@@ -42,12 +43,5 @@
     
     @RenderBody()
 
-   
-    <script src="~/scripts/customElement.js"></script> 
-    <script src="~/scripts/customValidation.js"></script>    
-    <script src="~/scripts/Script.js"></script>   
-    <script src="~/scripts/ModalScript.js"></script>   
-    <script src="~/scripts/ModalScriptAdmin.js"></script>
-    <script src="~/scripts/ModalScriptUsers.js"></script>
 </body>
 </html>

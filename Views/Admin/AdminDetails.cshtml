@@ -73,49 +73,50 @@
     <!-- Modal content -->
     <div class="modal-content">
         <div class="modal-header">
-           <span class="closeAdminPopup">&times;</span>
+           <span class="closeAdminPopup" id="closeAdminButton">&times;</span>
               <h2>Edit Details</h2>
         </div>
-         <div class="modal-body">
-            <div class="popup-container">
-                @using (Html.BeginForm("EditUserDetails", "Details", FormMethod.Post, new { @id = "editForm", @enctype = "multipart/form-data" }))
-                {
-                   @Html.ValidationSummary(true, "")
-                      <div class="registration-form">
-                          <div class="input-type">
-                               @Html.LabelFor(m => m.Firstname, "Firstname")<span>*</span>
-                          </div>
-                          <div class="input-value">
-                                   @Html.TextBoxFor(m => m.Firstname, Model.Firstname, new { placeholder = "Enter Firstname", required = "true", autocomplete = "off", oninput = "validate.isNameValid('Firstname','errorFirstname')" })
-                          </div>
-                      </div>
-                <div class="error" id="errorFirstname">@Html.ValidationMessage("Firstname", "")</div>
-
-                <div class="registration-form">
-                    <div class="input-type">
-                        @Html.LabelFor(m => m.Lastname, "Lastname")<span>*</span>
-                    </div>
-                    <div class="input-value">
-                        @Html.TextBoxFor(m => m.Lastname, Model.Lastname, new { placeholder = "Enter Lastname", autocomplete = "off", required = "true", oninput = "validate.isNameValid('Lastname','errorLastname')" })
-                    </div>
+        <div class="modal-body">
+          <div class="popup-container">
+            @using (Html.BeginForm("EditUserDetails", "Details", FormMethod.Post, new { @id = "editForm", @enctype = "multipart/form-data" }))
+            {
+              @Html.AntiForgeryToken();
+              @Html.ValidationSummary(true, "")
+              <div class="registration-form">
+                <div class="input-type">
+                  @Html.LabelFor(m => m.Firstname, "Firstname")<span>*</span>
                 </div>
-                <div class="error" id="errorLastname">@Html.ValidationMessage("Lastname", "")</div>
-
-                <div class="registration-form">
-                   <div class="input-type">
-                       @Html.LabelFor(m => m.Address, "Address")<span>*</span>
-                   </div>
-                   <div class="input-value">
-                       @Html.TextAreaFor(m => m.Address, 3, 40, new { placeholder = "Enter Your Address", required = "true", autocomplete = "off", oninput = "validate.isAddressValid('Address','errorAddress')" })
-                   </div>
+                <div class="input-value">
+                  @Html.TextBoxFor(m => m.Firstname, Model.Firstname, new { placeholder = "Enter Firstname", required = "true", autocomplete = "off", oninput = "validate.isNameValid('Firstname','errorFirstname')" })
                 </div>
-                <div class="error" id="errorAddress">@Html.ValidationMessage("Address", "")</div>
-              }
+              </div>
+              <div class="error" id="errorFirstname">@Html.ValidationMessage("Firstname", "")</div>
+
+              <div class="registration-form">
+                <div class="input-type">
+                  @Html.LabelFor(m => m.Lastname, "Lastname")<span>*</span>
+                </div>
+                <div class="input-value">
+                  @Html.TextBoxFor(m => m.Lastname, Model.Lastname, new { placeholder = "Enter Lastname", autocomplete = "off", required = "true", oninput = "validate.isNameValid('Lastname','errorLastname')" })
+                </div>
+              </div>
+              <div class="error" id="errorLastname">@Html.ValidationMessage("Lastname", "")</div>
+
+              <div class="registration-form">
+                <div class="input-type">
+                  @Html.LabelFor(m => m.Address, "Address")<span>*</span>
+                </div>
+                <div class="input-value">
+                  @Html.TextAreaFor(m => m.Address, 3, 40, new { placeholder = "Enter Your Address", required = "true", autocomplete = "off", oninput = "validate.isAddressValid('Address','errorAddress')" })
+                </div>
+              </div>
+              <div class="error" id="errorAddress">@Html.ValidationMessage("Address", "")</div>
+            }
         </div>
-     </div>
+     </div>        
      <div class="modal-footer">
          <button id="saveDetails" name="saveDetails" value="Save">Save</button>
-    </div>
+     </div>
   </div>
 </div>
 

@@ -76,23 +76,20 @@
 </div>
 
 
-
-
-
 <!-- The Modal -->
 
 <div id="myModal" class="modal">
-
     <!-- Modal content -->
     <div class="modal-content">
         <div class="modal-header">
-            <span class="close">&times;</span>
+            <span class="close" id="closeButton">&times;</span>
             <h2>Edit Details</h2>
         </div>
         <div class="modal-body">
             <div class="popup-container">
                 @using (Html.BeginForm("EditUserDetails", "Details", FormMethod.Post, new { @id = "editForm", @enctype = "multipart/form-data" }))
                 {
+                  @Html.AntiForgeryToken();
                     @Html.ValidationSummary(true, "")
 
                     <div class="registration-form">
@@ -100,7 +97,7 @@
                             @Html.LabelFor(m => m.Firstname, "Firstname")<span>*</span>
                         </div>
                         <div class="input-value">
-                            @Html.TextBoxFor(m => m.Firstname, Model.Firstname, new { placeholder = "Enter Firstname", required = "true", autocomplete = "off", oninput = "validate.isNameValid('Firstname','errorFirstname')" })
+                            @Html.TextBoxFor(m => m.Firstname, Model.Firstname, new { placeholder = "Enter Firstname", autocomplete = "off"})
                         </div>
                     </div>
                     <div class="error" id="errorFirstname">@Html.ValidationMessage("Firstname", "")</div>
@@ -110,7 +107,7 @@
                             @Html.LabelFor(m => m.Lastname, "Lastname")<span>*</span>
                         </div>
                         <div class="input-value">
-                            @Html.TextBoxFor(m => m.Lastname, Model.Lastname, new { placeholder = "Enter Lastname", autocomplete = "off", required = "true", oninput = "validate.isNameValid('Lastname','errorLastname')" })
+                            @Html.TextBoxFor(m => m.Lastname, Model.Lastname, new { placeholder = "Enter Lastname", autocomplete = "off"})
                         </div>
                     </div>
                     <div class="error" id="errorLastname">@Html.ValidationMessage("Lastname", "")</div>
@@ -120,7 +117,7 @@
                             @Html.LabelFor(m => m.Address, "Address")<span>*</span>
                         </div>
                         <div class="input-value">
-                            @Html.TextAreaFor(m => m.Address, 3, 40, new { placeholder = "Enter Your Address", required = "true", autocomplete = "off", oninput = "validate.isAddressValid('Address','errorAddress')" })
+                            @Html.TextAreaFor(m => m.Address, 3, 40, new { placeholder = "Enter Your Address", required = "true", autocomplete = "off" })
                         </div>
                     </div>
                     <div class="error" id="errorAddress">@Html.ValidationMessage("Address", "")</div>

@@ -34,7 +34,7 @@ namespace MindfireSolutions.CustomHelper
 
             builder.MergeAttribute("name", File);
 
-            builder.MergeAttribute("required", "true");
+           
 
             builder.MergeAttribute("style", "color:black");
 

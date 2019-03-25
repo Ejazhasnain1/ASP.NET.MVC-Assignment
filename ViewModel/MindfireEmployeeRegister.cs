@@ -41,7 +41,7 @@ namespace MindfireSolutions.ViewModel
         [Required(ErrorMessage = "*Please Enter Your address ")]
         [MinLength(5, ErrorMessage = "*Minimum length should be 5")]
         public string Address { get; set; }
-
+        [Required(ErrorMessage = "*Please Enter Your Contact ")]
         public string[] ContactNumber { get; set; }
 
 

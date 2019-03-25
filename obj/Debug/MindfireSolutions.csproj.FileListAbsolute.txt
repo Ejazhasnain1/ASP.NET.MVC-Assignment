@@ -52,3 +52,10 @@ D:\New folder\MindfireSolutions\MindfireSolutions\obj\Debug\MindfireSolutions.Mi
 D:\New folder\MindfireSolutions\MindfireSolutions\obj\Debug\MindfireSolutions.csproj.GenerateResource.Cache
 D:\New folder\MindfireSolutions\MindfireSolutions\bin\Elmah.dll
 D:\New folder\MindfireSolutions\MindfireSolutions\obj\Debug\MindfireSolutions.Migrations.AddElmah.resources
+D:\New folder\MindfireSolutions\MindfireSolutions\bin\Antlr3.Runtime.dll
+D:\New folder\MindfireSolutions\MindfireSolutions\bin\Newtonsoft.Json.dll
+D:\New folder\MindfireSolutions\MindfireSolutions\bin\System.Web.Optimization.dll
+D:\New folder\MindfireSolutions\MindfireSolutions\bin\WebGrease.dll
+D:\New folder\MindfireSolutions\MindfireSolutions\bin\Antlr3.Runtime.pdb
+D:\New folder\MindfireSolutions\MindfireSolutions\bin\Newtonsoft.Json.xml
+D:\New folder\MindfireSolutions\MindfireSolutions\bin\System.Web.Optimization.xml

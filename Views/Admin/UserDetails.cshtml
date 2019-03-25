@@ -7,7 +7,7 @@
     ViewBag.Header = "Mindfire Solutions";
 }
 <link href="~/Style/UsersDetailsView.css" rel="stylesheet" />
-<link href="~/Style/MediaQueryStyle/MediaQueryDetails.css" rel="stylesheet" />
+@*<link href="~/Style/MediaQueryStyle/MediaQueryDetails.css" rel="stylesheet" />*@
 <link href="~/Style/MediaQueryStyle/MediaQueryUsersDetail.css" rel="stylesheet" />
 <link href="~/Style/ModalStyle.css" rel="stylesheet" />
 <link href="~/Style/MediaQueryStyle/MediaQueryModal.css" rel="stylesheet" />
@@ -57,11 +57,9 @@
             </td>
 
             <td>
-                @*@Html.ActionLink("Edit", "UserDetails", new { id=item.EmployeeId }, new { onclick = "editUsersDetails()" })*@
                 <a href="#" id="" onclick="editUsersDetails(@idValue)">Edit</a>
                 @Html.ActionLink("Details", "ViewUserDetails", new { UserId = item.EmployeeId })
                 @Html.ActionLink("Delete", "DeleteUser", new { UserId = item.EmployeeId }, new { onclick = "return confirm('Do You want to delete User Details ?')" })
-
             </td>
         </tr>
     }
@@ -75,24 +73,25 @@
     <!-- Modal content -->
     <div class="modal-content">
         <div class="modal-header">
-            <span class="closeUserModal">&times;</span>
+            <span class="closeUserModal" id="closeUserButton">&times;</span>
             <h2>Edit Details</h2>
         </div>
         <div class="modal-body">
             <div class="popup-container">
                 @using (Html.BeginForm("EditDetails", "Admin", FormMethod.Post, new { @id = "editUsersForm", @enctype = "multipart/form-data" }))
                 {
+                    @Html.AntiForgeryToken();
                     @Html.ValidationSummary(true, "")
 
                     <input type="hidden" id="hiddenId" name="EmployeeId" />
-                        <div class="registration-form">
-                            <div class="input-type">
-                                <label for="fname">Firstname<span>*</span>  :</label>
+                            <div class="registration-form">
+                                <div class="input-type">
+                                    <label for="fname">Firstname<span>*</span>  :</label>
+                                </div>
+                                <div class="input-value">
+                                    <input type="text" id="fname" required name="Firstname" oninput="validate.isNameValid('fname', 'errorFirstname')">
+                                </div>
                             </div>
-                            <div class="input-value">
-                                <input type="text" id="fname" required name="Firstname" oninput="validate.isNameValid('fname', 'errorFirstname')">
-                            </div>
-                        </div>
                             <div class="error" id="errorFirstname">@Html.ValidationMessage("fname", "")</div>
 
                             <div class="registration-form">
@@ -114,9 +113,7 @@
                                 </div>
                             </div>
                             <div class="error" id="errorAddress">@Html.ValidationMessage("permanentAddress", "")</div>
-
-                }
-
+                       }
             </div>
         </div>
         <div class="modal-footer">

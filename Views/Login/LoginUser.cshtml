@@ -18,6 +18,7 @@
     <h1>Login</h1>
     @using (Html.BeginForm())
     {
+      @Html.AntiForgeryToken();
         @Html.ValidationSummary(true)
 
         <div class="error">@TempData["error"]</div>

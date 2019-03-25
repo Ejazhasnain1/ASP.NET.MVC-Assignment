@@ -11,57 +11,34 @@ using System.Web.Security;
 
 namespace MindfireSolutions.Controllers
 {
+    [Authorize]
     public class DetailsController : Controller
     {
+        MindfireDbContext reference = new MindfireDbContext();
         // GET: Details
         public ActionResult DisplayUserDetails()
         {
-            try
-            {
-                if (Convert.ToString(Session["user"]) != null)
-                {
-                    var employee = new Read().ReadData(Convert.ToString(Session["user"]));
-                    return View(employee);
-                }
-                else
-                    return RedirectToAction("LoginUser", "Login");
-            }
-            catch
-            {
-                return RedirectToAction("LoginUser", "Login");
-            }
-
+            string email = FormsAuthentication.Decrypt(Request.Cookies[FormsAuthentication.FormsCookieName].Value).Name;
+            var employee = new Read().ReadData(email);
+            return View(employee);
         }
 
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult EditUserDetails(EditEmployeeDetails emp)
         {
-            try
+            string email = FormsAuthentication.Decrypt(Request.Cookies[FormsAuthentication.FormsCookieName].Value).Name;
+            if (!ModelState.IsValid)
             {
-                if (Convert.ToString(Session["user"]) != null)
-                {
-                    if (!ModelState.IsValid)
-                    {
-                        return Json(new { success = false, }, JsonRequestBehavior.AllowGet);
-                    }
-                    else
-                    {
-                        new Edit().EditDetails(Convert.ToString(Session["user"]), emp);
-                        return Json(new { success = true, }, JsonRequestBehavior.AllowGet);
-                    }
-                }
-                else
-                    return RedirectToAction("LoginUser", "Login");
+                return Json(new { success = false, }, JsonRequestBehavior.AllowGet);
             }
-            catch (Exception)
+            else
             {
-                return RedirectToAction("LoginUser", "Login");
+                new Edit().EditDetails(email, emp);
+                return Json(new { success = true, }, JsonRequestBehavior.AllowGet);
             }
         }
-
-
-
 
         public ActionResult Logout()
         {

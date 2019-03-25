@@ -8,6 +8,7 @@ using MindfireSolutions.ViewModel;
 using System.IO;
 using MindfireSolutions.Models;
 using MindfireSolutions.CustomHelper;
+using System.Web.Security;
 
 namespace MindfireSolutions.Controllers
 {
@@ -20,6 +21,7 @@ namespace MindfireSolutions.Controllers
             return View();
         }
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult RegisterUser(MindfireEmployeeRegister employeeRegister)
         {
             if (ModelState.IsValid)
@@ -32,12 +34,12 @@ namespace MindfireSolutions.Controllers
                         if (ContactValidate.IsContactValid(employeeRegister))
                         {
                             var email = new Create().SaveData(employeeRegister);
-                            Session["user"] = email;
+                            FormsAuthentication.SetAuthCookie(email, false);
                             return RedirectToAction("DisplayUserDetails", "Details");
                         }
                         else
                         {
-                            TempData["contactError"] = "*Enter Valid number";
+                            TempData["contactError"] = "*Contact number Length should be between 5 and 12";
                             return View();
                         }
                     }

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using MindfireSolutions.ViewModel;
+using System.Web.Security;
 
 namespace MindfireSolutions.Controllers
 {
@@ -17,36 +18,19 @@ namespace MindfireSolutions.Controllers
             return View();
         }
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult LoginUser(EmployeeLogin emp)
         {
             if (ModelState.IsValid)
             {
-                try
+                string localPassword = Hash.GetHash(emp.Password);
+                var value = reference.GetEmployeeDetails.Where(m => m.Email.Equals(emp.Email) && m.Password.Equals(localPassword)).SingleOrDefault();
+                if (value != null)
                 {
-                    string localPassword = Hash.GetHash(emp.Password);
-                    var value = reference.GetEmployeeDetails.Where(m => m.Email.Equals(emp.Email) && m.Password.Equals(localPassword)).SingleOrDefault();
-                    var accessRole = reference.GetAccessType.Where(m => m.EmployeeId == value.EmployeeId).SingleOrDefault();
-
-                    if (value != null)
-                    {
-                        if (accessRole.RoleId == 2)
-                        {
-                            Session["user"] = emp.Email;
-                            return RedirectToAction("DisplayUserDetails", "Details");
-                        }
-                        else
-                        {
-                            Session["user"] = emp.Email;
-                            return RedirectToAction("AdminDetails", "Admin");
-                        }
-                    }
-                    else
-                    {
-                        TempData["error"] = "*Invalid Username or Password";
-                        return RedirectToAction("LoginUser");
-                    }
+                    FormsAuthentication.SetAuthCookie(emp.Email, false);
+                    return RedirectToAction("Index", "Home");
                 }
-                catch (Exception)
+                else
                 {
                     TempData["error"] = "*Invalid Username or Password";
                     return RedirectToAction("LoginUser");
@@ -54,5 +38,6 @@ namespace MindfireSolutions.Controllers
             }
             return View("LoginUser");
         }
-    }
+           
+     }
 }
